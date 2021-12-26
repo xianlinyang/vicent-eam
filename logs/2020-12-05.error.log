@@ -1,0 +1,3 @@
+2020/12/05 09:56:07.716 [E]  svrport = 0 query sql %!(EXTRA string=query sql  call MSP_Report_SPWater(0,1,0," where f_create_time >= "2020-12-01 00:00:00" and f_create_time <= "2020-12-10 23:59:59"",1,100," order by a.f_oprtime desc "))
+2020/12/05 09:56:44.791 [E]  svrport = 0 query sql %!(EXTRA string=query sql  call MSP_Report_SPWater(0,1,0," where f_create_time >= "2020-12-01 00:00:00" and f_create_time <= "2020-12-10 23:59:59"",1,100," order by id desc "))
+2020/12/05 09:59:17.531 [E]  svrport = 0 query sql %!(EXTRA string=query sql  call MSP_Report_SPWater(0,1,0," and f_create_time >= "2020-12-01 00:00:00" and f_create_time <= "2020-12-10 23:59:59"",1,100," order by id desc "))

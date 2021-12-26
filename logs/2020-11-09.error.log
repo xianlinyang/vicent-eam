@@ -1,0 +1,5 @@
+2020/11/09 15:55:09.942 [E]  svrport = 0 query sql %!(EXTRA string=query sql  CALL Msp_Spinfo_StockList(,,0,1,20) )
+2020/11/09 15:55:39.401 [E]  svrport = 0 query sql %!(EXTRA string=query sql  CALL Msp_Spinfo_StockList(,,0,1,20) )
+2020/11/09 16:38:31.200 [E]  svrport = 0 exec sql %!(EXTRA string=exec sql  update tbl_lend_in_main set f_serno= "JYGH202011080001",f_R_In_people= "2",f_R_PID= "-1",f_audit= "1",f_update_user= "1",f_status= "1",f_type= "0",f_R_Out_people= "-1",f_deptid= "1",f_R_date= "2020-11-08",id= "3",f_audit_date= "2020-11-09 16:38:31",f_note= "",f_update_time= "2020-11-09 16:38:31" where id =3)
+2020/11/09 16:38:31.210 [E]  svrport = 0 exec sql %!(EXTRA string=exec sql  delete from tbl_lend_in_detail where f_mid =  3)
+2020/11/09 16:38:31.211 [E]  svrport = 0 exec sql %!(EXTRA string=exec sql  INSERT INTO tbl_lend_in_detail(f_mid,f_spid,f_qty,f_price,f_total,f_Type,f_R_In_people,f_R_Out_people,f_R_PID,f_custody_deptid, 									 f_custody_userid,f_postion,f_spstate,f_note,f_create_user,f_create_time,f_customid )  values(3,2,1,100,100,0,1,-1,-1,96,1,139,破损,借用,1,now(),0) )

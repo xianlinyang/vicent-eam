@@ -1,0 +1,6 @@
+2020/11/26 09:47:07.747 [E]  svrport = 0 query sql %!(EXTRA string=query sql select id from (SELECT id FROM tbl_perms where   f_api ="AssetsList/AssetsImport") a LIMIT 0,1)
+2020/11/26 10:11:11.594 [E]  svrport = 0 query sql %!(EXTRA string=query sql select id from (SELECT id FROM tbl_perms where   f_api ="AssetsList/AssetsImport") a LIMIT 0,1)
+2020/11/26 10:26:10.393 [E]  svrport = 0 query sql %!(EXTRA string=exec sql CALL msp_spinfo_import (0,1))
+2020/11/26 10:27:23.075 [E]  svrport = 0 query sql %!(EXTRA string=exec sql CALL msp_spinfo_import (0,1))
+2020/11/26 10:28:36.514 [E]  svrport = 0 query sql %!(EXTRA string=exec sql CALL msp_spinfo_import (0,1))
+2020/11/26 10:29:16.864 [E]  svrport = 0 query sql %!(EXTRA string=exec sql CALL msp_spinfo_import (0,1))
