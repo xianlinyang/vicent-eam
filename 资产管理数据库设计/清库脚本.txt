@@ -1,0 +1,30 @@
+ 
+DELETE FROM sys_log;
+UPDATE tbl_basic tb SET F_NAME = '默认类别' WHERE id =1;
+DELETE FROM tbl_basic WHERE id <> 1;
+
+DELETE FROM tbl_billstream;
+
+UPDATE tbl_dept td SET f_name = '总公司' WHERE ID = 1;
+
+DELETE FROM tbl_dept WHERE ID > 2;
+
+
+DELETE FROM tbl_dictionary WHERE f_issys <> 1;
+
+DELETE FROM tbl_provider_type;
+ 
+DELETE from tbl_receive_apply_detail;
+DELETE FROM tbl_receive_apply_main;
+DELETE FROM tbl_receive_detail;
+DELETE FROM tbl_receive_main;
+
+DELETE FROM tbl_role WHERE id > 2;
+
+DELETE FROM tbl_role_data_perms WHERE f_roleid > 2;
+DELETE FROM tbl_role_deptid WHERE f_roleid > 2;
+DELETE FROM tbl_role_user WHERE f_userid > 2;
+DELETE from tbl_spinfo;
+DELETE FROM tbl_spinfo_pic;
+
+DELETE FROM tbl_user WHERE id > 1;

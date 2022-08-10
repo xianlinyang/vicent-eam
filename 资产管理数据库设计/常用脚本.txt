@@ -1,0 +1,3 @@
+ LEAVE label;
+ 
+ SELECT id INTO c_count FROM temp_spinfo_import_two tsit WHERE f_ScrappedDate <> '' AND  DATE_FORMAT(f_ScrappedDate,'%Y%m%d') IS NULL  LIMIT 0,1 ; 

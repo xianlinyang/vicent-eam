@@ -1,0 +1,904 @@
+--创建数据库
+create database EsaleEam_DB; 
+
+ 
+  --部门表
+CREATE TABLE IF NOT EXISTS `tbl_dept`(
+   `id`			INT UNSIGNED AUTO_INCREMENT,
+   `f_no`			VARCHAR(100)   NOT NULL COMMENT '部门编号',
+   `f_name`			VARCHAR(100)   NULL  COMMENT '部门名称',
+   `f_detype`		VARCHAR(100)   NULL  COMMENT '部门类型',
+   `f_parentid`		int   NULL  COMMENT '父级ID 一级为0',
+   `f_headpeople`   VARCHAR(100)   NULL  COMMENT '部门主管',
+   `f_Deputypeople` VARCHAR(100)   NULL  COMMENT '副主管',
+   `f_secretary`    VARCHAR(100)   NULL  COMMENT '秘书',
+   `f_status`		int  NOT NULL  COMMENT '状态 1正常 ',
+   `f_memo`			VARCHAR(100)   NULL  COMMENT '备注',
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime    COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+   `f_ordid`		INT  NOT NULL DEFAULT 0 COMMENT '排序号',
+   `f_company`		VARCHAR(100)   NULL  COMMENT '公司',   
+   `f_level`		INT NOT NULL COMMENT '层级',
+   `f_flag`   VARCHAR(200)   NULL COMMENT '删除状态 0正常 1已删除',
+   `f_delete_user`   INT   NULL COMMENT '删除人',
+   `f_delete_time`   INT   NULL COMMENT '删除时间',
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ 
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(1,'001','易售乐','',0,0,now(),0,'易售乐',1,1);
+
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(2,'01','公司总部','',1,1,now(),0,'易售乐',1,1);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(3,'02','行政部','',1,1,now(),0,'易售乐',1,1);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(4,'03','财务部','',1,1,now(),0,'易售乐',1,1);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(5,'04','营销事业部','',1,1,now(),0,'易售乐',1,1);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(6,'05','技术部','',1,1,now(),0,'易售乐',1,1);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(7,'06','后勤保障部','',1,1,now(),0,'易售乐',1,1);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,v,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(8,'07','其他','',1,1,now(),0,'易售乐',1,1);
+ 
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(50,'01001','公司总仓','',2,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(51,'02001','人事部','',3,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(52,'03001','财务室','',4,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(53,'04001','销售部','',5,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(54,'04002','销售经理室','',5,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(55,'04005','销售会议室','',5,1,now(),0,'易售乐',1,2);
+
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(56,'05001','研发部','',6,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(57,'05002','研发会议室','',6,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(58,'06001','后勤部','',7,1,now(),0,'易售乐',1,2);
+insert into tbl_dept(id,f_no,f_name,f_detype,f_parentid,f_status,f_create_time,f_ordid,f_company,f_create_user,f_level)
+values(59,'07001','机房','',7,1,now(),0,'易售乐',1,2);
+
+
+
+--角色表
+CREATE TABLE IF NOT EXISTS `tbl_role`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `f_name`    VARCHAR(100)   NOT NULL,
+   `f_note`    VARCHAR(100)   NULL,
+   `f_create_time`  datetime         , 
+   `f_ordid`   INT  NOT NULL DEFAULT 0,
+   `f_create_user`  INT NOT NULL,
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO tbl_role(id,f_name,f_create_time,f_ordid,f_create_user) VALUES(1,'超级管理员',NOW(),0,1)
+
+
+--用户表
+ CREATE TABLE IF NOT EXISTS `tbl_user`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `f_no`    VARCHAR(100)   NOT NULL    COMMENT  '用户编号',
+   `f_name`    VARCHAR(100)   NOT NULL  COMMENT '用户名称',
+   `f_password`    VARCHAR(100)   NOT NULL COMMENT '密码',
+   `f_img`     VARCHAR(1000)   NULL COMMENT '图片',
+   `f_roleid`  INT NOT NULL  COMMENT '关联角色',
+   `f_deptno`  VARCHAR(30) NOT NULL COMMENT '关联部门',
+   `f_status` INT NOT NULL DEFAULT 1 COMMENT '状态  1正常',
+   `f_phone` VARCHAR(30)  NULL  COMMENT '电话',
+   `f_type`   INT NOT NULL COMMENT '类型 1 用户信息 2员工信息',   
+   `f_note`    VARCHAR(100)   NULL COMMENT '备注',
+   `f_create_user`  INT  NULL COMMENT '创建人',
+   `f_create_time`  DATETIME NOT NULL COMMENT '创建时间',
+   `f_update_user`  INT  NULL COMMENT '最后修改 人',
+   `f_update_time`  DATETIME NOT NULL COMMENT '最后修改时间',
+   `f_sex`   VARCHAR(100)   NULL COMMENT '性别',
+   `f_avatar`   VARCHAR(200)   NULL COMMENT '首页地址',
+   `f_wxopenid`   VARCHAR(200)   NULL COMMENT '微信账号',
+   `f_email`   VARCHAR(200)   NULL COMMENT '邮箱',
+   `f_flag`   VARCHAR(200)   NULL COMMENT '删除状态 0正常 1已删除',
+   `f_delete_user`   INT   NULL COMMENT '删除人',
+   `f_delete_time`   DATETIME  NULL COMMENT '删除时间',
+   `f_position`   VARCHAR(30)   NULL COMMENT '职位',
+   `f_ordid`   INT  NOT NULL DEFAULT 0 COMMENT '排序号',
+   `f_logincount` INT NOT NULL DEFAULT 0 COMMENT '登陆次数',
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--菜单，权限表
+
+CREATE TABLE IF NOT EXISTS `tbl_menu`(
+   `id`			INT UNSIGNED AUTO_INCREMENT,
+   `f_qxid` int NOT NULL      COMMENT '菜单ID',
+   `f_pid`         INT   NOT NULL       COMMENT '父级ID',
+   `f_code`			VARCHAR(100)   NULL  COMMENT '菜单编号',
+   `f_name`			VARCHAR(100)   NULL  COMMENT '名称',
+   `f_alias`			VARCHAR(100)   NULL  COMMENT '别名',
+   `f_component`  int NULL,
+   `f_icon`       int NULL  COMMENT '名称',
+   `f_status`     int NOT NULL COMMENT '状态 1正常',
+   `f_type`      int   NULL COMMENT '菜单类型',
+   `f_level`		int   NOT NULL  COMMENT '层级',
+   `f_orderid`      int   NOT NULL  COMMENT '排序号',
+   `f_create_user`      int   NOT NULL  COMMENT '创建人',
+   `f_create_time`		datetime    COMMENT '创建时间',
+   `f_update_user`  INT  NULL COMMENT '最后修改 人',
+   `f_update_time`  DATETIME  NULL COMMENT '最后修改时间',
+   `f_flag`   VARCHAR(200)   NULL COMMENT '删除状态 0正常 1已删除',
+   `f_delete_user`   INT   NULL COMMENT '删除人',
+   `f_delete_time`   datetime   NULL COMMENT '删除时间',
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--菜单，权限表
+CREATE TABLE IF NOT EXISTS `tbl_perms`(
+   `id`			INT UNSIGNED AUTO_INCREMENT,
+   `f_qxid` int NOT NULL      COMMENT '权限ID',
+   `f_menu_id` int NOT NULL      COMMENT '功能菜单ID',
+   `f_name`         varchar(100)   NOT NULL       COMMENT '权限名称',
+   `f_code`			VARCHAR(100)   NULL  COMMENT '权限编号 usermain:create',
+   `f_api`			VARCHAR(100)   NULL  COMMENT '对应API USER/create',
+   `f_method`			VARCHAR(100)   NULL  COMMENT '操作 1浏览 2新增 3修改 4删除',
+   `f_status`     int NOT NULL COMMENT '状态 1正常',
+   `f_orderid`      int   NOT NULL  COMMENT '排序号',
+   `f_create_user`      int   NOT NULL  COMMENT '创建人',
+   `f_create_time`		DATE    COMMENT '创建时间',
+   `f_update_user`  INT  NULL COMMENT '最后修改 人',
+   `f_update_time`  DATETIME  NULL COMMENT '最后修改时间',
+   `f_flag`   VARCHAR(200)   NULL COMMENT '删除状态 0正常 1已删除',
+   `f_delete_user`   INT   NULL COMMENT '删除人',
+   `f_delete_time`   INT   NULL COMMENT '删除时间',
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ 
+--角色用户表
+CREATE TABLE IF NOT EXISTS `tbl_role_user`(
+   `id`			INT UNSIGNED AUTO_INCREMENT,
+   `f_userid` int NOT NULL      COMMENT '用户ID',
+   `f_roleid` int NOT NULL      COMMENT '角色ID',
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--菜单，权限表
+CREATE TABLE IF NOT EXISTS `tbl_role_data_perms`(
+   `id`			INT UNSIGNED AUTO_INCREMENT,
+   `f_roleid` int NOT NULL      COMMENT '角色ID',
+   `f_qxid` int NOT NULL      COMMENT '权限ID',
+   `f_qx_pid` int NOT NULL      COMMENT '功能菜单ID',  
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--日志表 
+CREATE TABLE IF NOT EXISTS `sys_log`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `f_typelevel`    VARCHAR(100)   NOT NULL COMMENT '日志级别',
+   `f_modal`        VARCHAR(100)   NULL COMMENT '模块',
+   `f_keywords`     VARCHAR(100)   NULL COMMENT '业务ID',
+   `f_oprtime`      datetime  NOT NULL COMMENT '操作时间' , 
+   `f_userid`       INT  NOT NULL DEFAULT 0  COMMENT '操作人',
+   `f_note`         VARCHAR(1000)  COMMENT '日志内容',
+   `f_oprtype`      VARCHAR(100)  COMMENT '操作类型',
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--TOKEN表
+CREATE TABLE IF NOT EXISTS `tbl_token`(
+   `id`			          INT UNSIGNED AUTO_INCREMENT,
+   `f_userid`			    INT   NOT NULL COMMENT '用户ID',
+   `f_token`			    VARCHAR(1024)   NULL  COMMENT '生成TOKEN值',
+   `f_create_time`		DATETIME  NOT  NULL  COMMENT '创建时间',
+   `f_expire_time`		DATETIME  NULL  COMMENT 'TOKEN到期时间',
+    
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--基础资料表 
+ 
+CREATE TABLE IF NOT EXISTS `tbl_Basic`(
+   `id`			          INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`			int NOT NULL DEFAULT 0 COMMENT '',
+   `f_type`			      INT   NOT NULL COMMENT '类型    1 资产类型  2品牌 3供应商 4单位 ',
+   `f_no`			        VARCHAR(50)   NULL  COMMENT '编号',
+   `f_status`			    INT  NOT NULL  COMMENT '状态 1 正常',
+   `f_parentid`			  INT   NULL  COMMENT '父级ID',
+   `f_name`			      VARCHAR(200)   NULL  COMMENT '名称',
+   `f_order`			    INT   NULL  COMMENT '排序号',   
+   `f_note`			      VARCHAR(1024)   NULL  COMMENT '备注',
+   `f_create_user`	  INT  NOT NULL  COMMENT '创建人',
+   `f_create_time`		DATETIME  NOT  NULL  COMMENT '创建时间',
+   `f_update_user`    INT  NULL COMMENT '最后修改 人',
+   `f_update_time`    DATETIME  NULL COMMENT '最后修改时间',
+   `f_flag`           INT  NOT  NULL COMMENT '删除状态 0正常 1已删除',
+   `f_delete_user`    INT   NULL COMMENT '删除人',
+   `f_delete_time`    INT   NULL COMMENT '删除时间',
+    
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ CREATE TABLE IF NOT EXISTS `tbl_Spinfo`(
+   `id`						INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`			INT NOT NULL DEFAULT 0 COMMENT '',
+   `f_Code`					VARCHAR（100）  NOT NULL COMMENT '条码 ',
+   `f_Name`			        VARCHAR(100)   NULL  COMMENT '名称',
+   `f_Status`			    INT  NOT NULL  COMMENT '状态 1 正常',
+   `f_Typeid`				INT   NULL  COMMENT '类别ID',
+   `f_PPID`					INT   NULL  COMMENT '品牌ID',   
+   `f_Providerid`			INT   NULL  COMMENT '供应商ID',
+   `f_Specification`		VARCHAR(50)   NULL  COMMENT '规格',
+   `f_Model`			    VARCHAR(50)   NULL  COMMENT '型号',
+   `f_Unit`					VARCHAR(50)   NULL  COMMENT '单位',
+   `f_Price`			    DECIMAL(18,2)  NULL  COMMENT '价格',
+   `f_Source`			    VARCHAR(100)   NULL  COMMENT '来源',
+   `f_Company`			    INT   NULL  COMMENT '所属公司',
+   `f_Dept`					INT   NULL  COMMENT '所属部门',
+   `f_CustodyPeople`		INT   NULL  COMMENT '保管人员',
+   `f_UseCompany`			INT   NULL  COMMENT '使用公司',
+   `f_UseDept`			    INT   NULL  COMMENT '使用部门',
+   `f_UsePeople`			INT   NULL  COMMENT '在用人员',
+   `f_PositionDept`			INT   NULL  COMMENT '存放部门',
+   `f_Invoice`			    VARCHAR(100)   NULL  COMMENT '发票号',
+   `f_InvoiceDate`			DATETIME   NULL  COMMENT '开票日期',
+   `f_BuyDate`			    DATETIME   NULL  COMMENT '购买日期',
+   `f_ScrappedDate`			DATETIME   NULL  COMMENT '报废日期',
+   `f_MaintenanceDate`		DATETIME   NULL  COMMENT '过保日期',
+   `f_UseDate`			    DATETIME   NULL  COMMENT '领用时间',
+   `f_IsPD`			        INT NOT  NULL  COMMENT '是否盘点',
+   `f_UseWay`			    VARCHAR(50)   NULL  COMMENT '资产用途',
+   `f_note`			        VARCHAR(300)   NULL  COMMENT '备注',
+   `f_Qty`			        INT   NULL  COMMENT '数量',
+   `f_create_user`	        INT  NOT NULL  COMMENT '创建人',
+   `f_create_time`		    DATETIME  NOT  NULL  COMMENT '创建时间',
+   `f_update_user`          INT  NULL COMMENT '最后修改 人',
+   `f_update_time`          DATETIME  NULL COMMENT '最后修改时间',
+   `f_flag`                 INT  NOT  NULL COMMENT '删除状态 0正常 1已删除',
+   `f_delete_user`          INT   NULL COMMENT '删除人',
+   `f_delete_time`          DATETIME   NULL COMMENT '删除时间',
+    
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `tbl_Spinfo_Pic`(
+   `id`						    INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`			INT NOT NULL DEFAULT 0 COMMENT '',
+   `f_pid`					  INT NOT NULL COMMENT '商品ID ',
+   `f_PicName`			  VARCHAR(300)   NULL  COMMENT '图片名称',
+   `f_flag`           INT  NOT  NULL COMMENT '删除状态 0正常 1已删除',  
+   `f_create_time`		    DATETIME  NOT  NULL  COMMENT '创建时间',
+   `f_delete_time`          DATETIME   NULL COMMENT '删除时间', 
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ CREATE TABLE IF NOT EXISTS `tbl_System`(
+   `id`						      INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`			  INT NOT NULL DEFAULT 0 COMMENT '',
+   `f_Name`					    varchar(100)  NOT NULL COMMENT '软件名称',
+   `f_ComPany`			    VARCHAR(100)   NULL  COMMENT '许可单位',
+   `f_Version`			    VARCHAR(100)   NULL  COMMENT '版本号',
+   `f_CertificateDate`	DATETIME   NULL  COMMENT '发证日期',
+   `f_enddate`					DATETIME   NULL  COMMENT '有效期',   
+   `f_note`					    DATETIME   NULL  COMMENT '备注',  
+    
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ 
+
+alter table tbl_spinfo add unique(f_Code);
+alter table tbl_basic add unique index tbl_basic_index_repeat(f_no,f_type,f_flag);
+alter table tbl_spinfo add unique index tbl_spinfo_Index_f_code_falg(f_Code,f_flag);
+
+
+
+
+
+--数据字典表
+CREATE TABLE IF NOT EXISTS `tbl_dictionary`(
+   `id`			    INT UNSIGNED AUTO_INCREMENT,
+   `f_no`			  VARCHAR(100)    NULL COMMENT '字典编码',
+   `f_Ch_name`			VARCHAR(100)   NOT NULL  COMMENT '字典名称 中文', 
+   `f_Eh_name`			VARCHAR(100)     NULL  COMMENT '字典名称 英文', 
+   `f_parentid`	int   NULL  COMMENT '父级ID',
+   `f_status`		int  NOT NULL  COMMENT '状态 1正常 0停用 ', 
+   `f_default`	int  NOT NULL  COMMENT '是否默认 ', 
+   `f_issys`	int  NOT NULL  COMMENT '是否内置 ', 
+   `f_ordid`		INT  NOT NULL DEFAULT 0 COMMENT '排序号', 
+   `f_type`		  INT NOT NULL COMMENT '0 系统字典 1自定义字典',   
+   `f_level`		  INT NOT NULL COMMENT '0 字典大类 1字典列表',   
+   `f_note`		  VARCHAR(100)  NULL COMMENT '备注',
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime    COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+       
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- DROP TABLE tbl_dictionary
+--  SELECT *FROM tbl_dictionary
+
+
+ INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+ VALUES('1','系统字黄',0,1,1,1,1,0,'',1,NOW(),0);
+
+  INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+  VALUES('','取得方式',1,1,1,1,1,0,'',1,NOW(),0);
+  INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+  VALUES('','处置方式',1,1,1,1,2,0,'',1,NOW(),0);
+  INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+  VALUES('','报废原因',1,1,1,1,3,0,'',1,NOW(),0);
+  INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+  VALUES('','申领原因',1,1,1,1,4,0,'',1,NOW(),0);
+  INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+  VALUES('','职位',1,1,1,1,5,0,'',1,NOW(),0);
+  INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+  VALUES('','资产性质',1,1,1,1,6,0,'',1,NOW(),0);
+  INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+  VALUES('','资产用途',1,1,1,1,7,0,'',1,NOW(),0);
+
+ INSERT INTO tbl_dictionary(f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_ordid,f_type,f_note,f_create_user,f_create_time,f_level)
+ VALUES('2','自定义字典',0,1,1,1,2,1,'',1,NOW(),0);
+
+ 
+
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(1,'01','购买',2,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(2,'02','获赠',2,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(3,'03','自建',2,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(4,'04','租凭',2,1,1,1,0,'',1,NOW(),1);
+
+--  SELECT *FROM tbl_dictionary
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(1,'01','丢弃',3,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(2,'02','变卖',3,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(3,'03','报损',3,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(4,'04','报废',3,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(5,'05','调出',3,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(6,'06','损赠',3,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(7,'07','退租',3,1,1,1,0,'',1,NOW(),1);
+
+
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(1,'01','损坏',4,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(2,'02','丢失',4,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(3,'03','到期',4,1,1,1,0,'',1,NOW(),1);
+--  SELECT *FROM tbl_dictionary
+
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(1,'01','日常办公',5,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(2,'02','研发测试',5,1,1,1,0,'',1,NOW(),1);
+ 
+ 
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(1,'01','普通员工',6,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(2,'02','部门经理',6,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(3,'03','资产管理员',6,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(4,'04','超级管理员',6,1,1,1,0,'',1,NOW(),1);
+ 
+
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(1,'01','固定资产',7,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(2,'02','低值易耗品',7,1,1,1,0,'',1,NOW(),1);
+
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(1,'01','办公',8,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(2,'02','科研',8,1,1,1,0,'',1,NOW(),1);
+   INSERT INTO tbl_dictionary(f_ordid,f_no,f_ch_name,f_parentid,f_status,f_default,f_issys,f_type,f_note,f_create_user,f_create_time,f_level)
+   VALUES(3,'03','生产',8,1,1,1,0,'',1,NOW(),1);
+ 
+
+
+--领用申请
+CREATE TABLE IF NOT EXISTS `tbl_Receive_Apply_Main`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`		INT NOT NULL COMMENT '',
+   `f_serno`			char(50)  not  NULL COMMENT '申请单号',
+   `f_status`			int  NOT NULL  COMMENT '单据状态', 
+   `f_re_deptid`		int  NOT NULL  COMMENT '领用部门', 
+   `f_re_userid`		int  NOT NULL  COMMENT '领用人',
+   `f_apply_userid`		int  NOT NULL  COMMENT '申请人 ', 
+   `f_return_date`		DATETIME NULL  COMMENT '归还时间', 
+   `f_re_date`			DATETIME NULL  COMMENT '预计领用时间', 
+   `f_audit_date`		DATETIME NULL  COMMENT '提交申请时间', 
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',  
+   `f_nextaudit_user`	INT NOT NULL COMMENT '下一审批人',  
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+   `f_apply_reason`		datetime    COMMENT '申领原因',    
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--领用申请
+CREATE TABLE IF NOT EXISTS `tbl_Receive_Apply_Detail`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_mid`			    INT not  NULL COMMENT '主单号',
+   `f_spid`			    int  NOT NULL  COMMENT '商品ID', 
+   `f_qty`		        FLOAT  NOT NULL  COMMENT '数量', 
+   `f_price`		    FLOAT  NOT NULL  COMMENT '价格',
+   `f_total`		    FLOAT  NOT NULL  COMMENT '金额',
+   `f_custody_deptid`		int    NULL  COMMENT '保管部门',
+   `f_custody_userid`		int    NULL  COMMENT '保管人员',
+   `f_postion`		    int    NULL  COMMENT '存放位置',
+   `f_use_deptid`		int  NOT NULL  COMMENT '使用部门',
+   `f_public`		    int  NOT NULL  COMMENT '是否公用 0否 1是',
+   `f_use_userid`		int   NULL  COMMENT '使用人员',
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',    
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+       
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--系统状态 数据字典表
+CREATE TABLE IF NOT EXISTS `tbl_sys_dictionary`(
+   `id`			    INT UNSIGNED AUTO_INCREMENT,
+   `f_id`			  int NOT    NULL COMMENT '状态ID',
+   `f_name`			VARCHAR(100)   NOT NULL  COMMENT '字典名称 中文', 
+   `f_order`	  int NOT      NULL  COMMENT '排序与，也是业务序号', 
+   `f_type`			  int NOT    NULL COMMENT '类型 0商品状态  1 领用申请状态 ',
+       
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--商品状态
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(-1,'报废',0,0);
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(0,'闲置',1,0);
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(1,'领用',2,0);
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(2,'借用',3,0);
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(3,'处置',4,0);
+
+--领用申请
+ 
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(0,'草稿',1,1);
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(1,'待审批',2,1);
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(2,'待确认',3,1);
+ 
+INSERT INTO tbl_sys_dictionary(f_id,f_name,f_order,f_type) VALUES(8,'已完结',8,1);
+
+
+
+
+
+--单据流水表
+CREATE TABLE IF NOT EXISTS `tbl_billstream`(
+   `id`			        INT UNSIGNED AUTO_INCREMENT,
+   `f_type`			    int   NOT NULL COMMENT ' 类型 0 领用订单',
+   `f_serno`			  VARCHAR(100)  NOT NULL  COMMENT '单号',
+   `f_opruserid`		int   NOT NULL  COMMENT '操作人',
+   `f_oprtime`		  datetime not  NULL  COMMENT '操作时间',
+   `f_opr`          VARCHAR(100) not  NULL  COMMENT '操作',
+   `f_memo`         VARCHAR(100)   NULL  COMMENT '操作说明',
+   `f_busid`        INT not  NULL  COMMENT '关联业务ID', 
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--领用表
+CREATE TABLE IF NOT EXISTS `tbl_Receive_Main`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`		INT NOT NULL COMMENT '',
+   `f_serno`			char(50)  not  NULL COMMENT '单号',
+   `f_status`			int  NOT NULL  COMMENT '单据状态', 
+   `f_re_deptid`		int  NOT NULL  COMMENT '领用部门', 
+   `f_re_userid`		int  NOT NULL  COMMENT '领用人',
+   `f_apply_billid`		int    NULL  COMMENT '关联申请单号 ', 
+   `f_re_date`		DATETIME NOT NULL  COMMENT '领用日期',  
+   `f_audit_date`		DATETIME NULL  COMMENT '提交时间', 
+   `f_audit_userid`		INT NULL  COMMENT '提交人', 
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',   
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间', 
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_Receive_Detail`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_mid`			    INT not  NULL COMMENT '主单号',
+   `f_spid`			    int  NOT NULL  COMMENT '商品ID', 
+   `f_qty`		        FLOAT  NOT NULL  COMMENT '数量', 
+   `f_price`		    FLOAT  NOT NULL  COMMENT '价格',
+   `f_total`		    FLOAT  NOT NULL  COMMENT '金额',
+   `f_custody_deptid`		int    NULL  COMMENT '保管部门',
+   `f_custody_userid`		int    NULL  COMMENT '保管人员',
+   `f_postion`		    int    NULL  COMMENT '存放位置',
+   `f_use_deptid`		int  NOT NULL  COMMENT '使用部门',
+   `f_public`		    int  NOT NULL  COMMENT '是否公用 0否 1是',
+   `f_use_userid`		int   NULL  COMMENT '使用人员',
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',    
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+       
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `tbl_role_deptid`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`  INT   NOT NULL  COMMENT '客户ID',
+   `f_roleid`    INT   NOT NULL  COMMENT '角色ID',
+   `f_deptid`    INT   NOT NULL  COMMENT '关联部门ID',
+   `f_create_time`  datetime         , 
+ 
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `tbl_role_type`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`  INT   NOT NULL  COMMENT '客户ID',
+   `f_roleid`    INT   NOT NULL  COMMENT '角色ID',
+   `f_lbid`      INT   NOT NULL  COMMENT '关联类别ID',
+   `f_create_time`  datetime         , 
+ 
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--供应商关联类别表
+CREATE TABLE IF NOT EXISTS `tbl_provider_Type`(
+   `id`			INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`			int   NOT NULL COMMENT '客户ID',
+   `f_proid`			int   NOT NULL COMMENT '供应商ID',
+   `f_typeid`			int   NOT NULL  COMMENT '类别ID',
+ 
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+-- 归还主单
+CREATE TABLE IF NOT EXISTS `tbl_Return_Main`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`		INT NOT NULL COMMENT '',
+   `f_customid`   int NOT NULL COMMENT '客户ID',
+   `f_serno`			char(50)  not  NULL COMMENT '申请单号',
+   `f_status`			int  NOT NULL  COMMENT '单据状态 0草稿 1已提交生效', 
+   `f_deptid`			int  NOT NULL  COMMENT '制单部门', 
+   `f_return_date`		int  NOT NULL  COMMENT '退库日期', 
+   `f_return_deptid`		int  NOT NULL  COMMENT '退还部门',
+   `f_return_userid`		int  NOT NULL  COMMENT '退还人员',  
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',      
+   `f_create_user`		INT NOT NULL COMMENT '制单人',
+   `f_create_time`		datetime NOT NULL   COMMENT '制单时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '最后修改时间',
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 归还从单  --归还后没有使用人，所以这里没有使用人字段和使用部门字段
+CREATE TABLE IF NOT EXISTS `tbl_Return_Detail`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`   int NOT NULL COMMENT '客户ID',
+   `f_mid`			    INT not  NULL COMMENT '主单号',
+   `f_spid`			    int  NOT NULL  COMMENT '商品ID', 
+   `f_qty`		        FLOAT  NOT NULL  COMMENT '数量', 
+   `f_price`		    FLOAT  NOT NULL  COMMENT '价格',
+   `f_total`		    FLOAT  NOT NULL  COMMENT '金额',
+   `f_befor_deptid`		int  NOT  NULL  COMMENT '退库前管理部门',
+   `f_befor_userid`		int  NOT  NULL  COMMENT '退库前管理人员',   
+   `f_beforuse_deptid`		int  NOT  NULL  COMMENT '退库前使用部门',
+   `f_beforuse_userid`		int  NOT  NULL  COMMENT '退库前使用人员',
+   `f_beforuse_option`		int  NOT  NULL  COMMENT '退库前所在位置',
+   `f_custody_deptid`		int  NOT  NULL  COMMENT '归还后管理部门',
+   `f_custody_userid`		int  NOT  NULL  COMMENT '归还后管理人员', 
+   `f_postion`		    int    NULL  COMMENT '归还后存放位置',   
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',    
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+       
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+  -- 外部联系人表
+--   -- 外部联系人表
+-- CREATE TABLE IF NOT EXISTS `tbl_Contact_Outer`(
+--    `id`			        INT UNSIGNED AUTO_INCREMENT,
+--    `f_customid`			INT   NOT NULL COMMENT '客户ID',
+--    `f_no`			      VARCHAR(100)   NOT NULL COMMENT '编号',
+--    `f_name`		    	VARCHAR(100)   NULL  COMMENT '名称',
+--    `f_phone`	    	VARCHAR(100)   NULL  COMMENT '手机',
+--    `f_company`		  varchar(100)   NULL  COMMENT '公司',
+--    `f_address`      VARCHAR(200)   NULL  COMMENT '地址',
+--    `f_type`         INT   NULL  COMMENT '性质  0外部联系人 ', 
+--    `f_status`		    int  NOT NULL  COMMENT '状态 1正常 ',
+--    `f_memo`			    VARCHAR(200)   NULL  COMMENT '备注',
+--    `f_create_user`		INT NOT NULL COMMENT '创建人',
+--    `f_create_time`		datetime    COMMENT '创建时间',
+--    `f_update_user`		INT NULL COMMENT '最后修改人',
+--    `f_update_time`		datetime    COMMENT '创建时间',
+--    `f_ordid`		      INT  NOT NULL DEFAULT 0 COMMENT '排序号',
+--    `f_flag`           INT  NOT NULL  DEFAULT 0  COMMENT '删除状态 0正常 1已删除',
+--    `f_delete_user`    INT  NULL COMMENT '删除人',
+--    `f_delete_time`    INT  NULL COMMENT '删除时间',
+--    PRIMARY KEY (`id`)
+-- )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE tbl_Lend_Out_Main;
+DROP TABLE tbl_Lend_Out_Detail;
+DROP TABLE tbl_Lend_In_Main;
+DROP TABLE tbl_Lend_In_Detail;
+
+-- 借出主表
+CREATE TABLE IF NOT EXISTS `tbl_Lend_Out_Main`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`			int  NOT NULL  COMMENT '客户ID' , 
+   `f_accountid`		INT NOT NULL COMMENT '',
+   `f_serno`			char(50)  not  NULL COMMENT '单号',
+   `f_status`			int  NOT NULL  COMMENT '单据状态', 
+   `f_Type`			  int  NOT NULL  COMMENT '借出类型 0内部借出单  1外部联系人借出单  2供应商借出单', 
+   `f_deptid`			  int  NOT NULL  COMMENT '制单部门ID', 
+   `f_Lend_In_people`		int  NOT NULL DEFAULT -1 COMMENT '内部借用人 关联 tbl_user 表', 
+   `f_Lend_Out_people`		int  NOT NULL DEFAULT -1 COMMENT '归还人-外部 关联 tbl_basic 表f_type=5', 
+   `f_Lend_PID`		int  NOT NULL DEFAULT -1 COMMENT '借用供应商 关联 tbl_basic 表f_type=3', 
+   `f_Lend_date`		DATETIME NOT NULL  COMMENT '借用日期',  
+   `f_Return_date`		DATETIME NOT NULL  COMMENT '预时归还时间',
+   `f_audit`		INT NOT NULL DEFAULT 0  COMMENT '出库标志',    
+   `f_audit_date`		DATETIME NULL  COMMENT '出库时间', 
+   `f_audit_userid`		INT NULL  COMMENT '出库人', 
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',   
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间', 
+   `f_flag`		        INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`		int NULL    COMMENT '删除人', 
+   `f_delete_time`		datetime  NULL  COMMENT '删除时间', 
+     
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 借出从表
+CREATE TABLE IF NOT EXISTS `tbl_Lend_Out_Detail`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`			int  NOT NULL  COMMENT '客户ID' , 
+   `f_mid`			    INT not  NULL COMMENT '主单号',
+   `f_spid`			    int  NOT NULL  COMMENT '商品ID', 
+   `f_qty`		        FLOAT  NOT NULL  COMMENT '数量', 
+   `f_price`		    FLOAT  NOT NULL  COMMENT '价格',
+   `f_total`		    FLOAT  NOT NULL  COMMENT '金额',
+   `f_Type`			  int  NOT NULL  COMMENT '借出类型 0内部借出单  1外部联系人借出单  2供应商借出单', 
+   `f_Lend_In_people`		int  NOT NULL DEFAULT -1 COMMENT '内部借用人 关联 tbl_user 表', 
+   `f_Lend_Out_people`		int  NOT NULL DEFAULT -1 COMMENT '归还人-外部 关联 tbl_basic 表f_type=5', 
+   `f_Lend_PID`		int  NOT NULL DEFAULT -1 COMMENT '借用供应商 关联 tbl_basic 表f_type=3', 
+   `f_lend_deptid`		int  NOT NULL DEFAULT -1 COMMENT '内部借用单  借到部门', 
+   `f_postion`		int  NOT NULL DEFAULT -1 COMMENT '内部借用单  借到位置',   
+   `f_Return_date`		DATETIME NOT NULL  COMMENT '预时归还时间',     
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',    
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+   `f_flag`		        INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`		int NULL    COMMENT '删除人', 
+   `f_delete_time`		datetime  NULL  COMMENT '删除时间', 
+       
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+-- 借用归还主表
+CREATE TABLE IF NOT EXISTS `tbl_Lend_In_Main`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`		INT NOT NULL COMMENT '',
+   `f_customid`			int  NOT NULL  COMMENT '客户ID' , 
+   `f_serno`			char(50)  not  NULL COMMENT '单号',
+   `f_status`			int  NOT NULL  COMMENT '单据状态', 
+   `f_Type`			  int  NOT NULL  COMMENT '借出类型 0内部借出归还单  1外部联系人借出归还单  2供应商借出归还单', 
+   `f_deptid`			  int  NOT NULL  COMMENT '制单部门ID', 
+   `f_R_In_people`		int  NOT NULL DEFAULT -1 COMMENT '归还人-内部 关联 tbl_user 表', 
+   `f_R_Out_people`		int  NOT NULL DEFAULT -1 COMMENT '归还人-外部 关联 tbl_basic 表f_type=5', 
+   `f_R_PID`		int  NOT NULL DEFAULT -1 COMMENT '归还供应商ID 关联 tbl_basic 表f_type=3', 
+   `f_R_date`		DATETIME NOT NULL  COMMENT '归还日期',  
+   `f_audit`		INT NOT NULL DEFAULT 0  COMMENT '出库标志',  
+   `f_audit_date`		DATETIME NULL  COMMENT '出库时间', 
+   `f_audit_userid`		INT NULL  COMMENT '出库人', 
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',   
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间', 
+   `f_flag`		        INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`		int NULL    COMMENT '删除人', 
+   `f_delete_time`		datetime  NULL  COMMENT '删除时间', 
+     
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 借用归还从表
+CREATE TABLE IF NOT EXISTS `tbl_Lend_In_Detail`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`			int  NOT NULL  COMMENT '客户ID' , 
+   `f_mid`			    INT not  NULL COMMENT '主单号',
+   `f_spid`			    int  NOT NULL  COMMENT '商品ID', 
+   `f_qty`		        FLOAT  NOT NULL  COMMENT '数量', 
+   `f_price`		    FLOAT  NOT NULL  COMMENT '价格',
+   `f_total`		    FLOAT  NOT NULL  COMMENT '金额',
+   `f_Type`			  int  NOT NULL  COMMENT '借出类型 0内部借出单  1外部联系人借出单  2供应商借出单', 
+   `f_R_In_people`		int  NOT NULL DEFAULT -1 COMMENT '归还人-内部 关联 tbl_user 表', 
+   `f_R_Out_people`		int  NOT NULL DEFAULT -1 COMMENT '归还人-外部 关联 tbl_basic 表f_type=5', 
+   `f_R_PID`		int  NOT NULL DEFAULT -1 COMMENT '归还供应商ID 关联 tbl_basic 表f_type=3',   
+   `f_custody_deptid`		int  NOT NULL DEFAULT -1 COMMENT '归还后管理部门', 
+   `f_custody_userid`		int  NOT NULL DEFAULT -1 COMMENT '归还后管理人员', 
+   `f_postion`		int  NOT NULL DEFAULT -1 COMMENT '归还后存放位置', 
+   `f_spstate`			varchar(100)  NULL  COMMENT '归还商品状态 是否有破损等',   
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',    
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+   `f_flag`		        INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`		int NULL    COMMENT '删除人', 
+   `f_delete_time`		datetime  NULL  COMMENT '删除时间',        
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+-- 调拨主表
+CREATE TABLE IF NOT EXISTS `tbl_DB_Main`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`		INT NOT NULL COMMENT '',
+   `f_customid`			int  NOT NULL  COMMENT '客户ID' , 
+   `f_serno`			char(50)  not  NULL COMMENT '单号',
+   `f_status`			int  NOT NULL  COMMENT '单据状态 0草稿 1已审批 ', 
+   `f_Type`			  int  NOT NULL  COMMENT '调拨类型 0 普通调拨', 
+   `f_deptid`			  int  NOT NULL  COMMENT '制单部门ID', 
+   `f_Out_Deptid`		int  NOT NULL DEFAULT -1 COMMENT '调出部门ID', 
+   `f_IN_Deptid`		int  NOT NULL DEFAULT -1 COMMENT '调入部门ID',   
+   `f_date`		DATETIME NOT NULL  COMMENT '归还日期',  
+   `f_audit`		INT NOT NULL DEFAULT 0  COMMENT '出库标志  0未出库 1已出库 2已入库',  
+   `f_audit_date`		DATETIME NULL  COMMENT '出库时间', 
+   `f_audit_userid`		INT NULL  COMMENT '出库人', 
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',   
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间', 
+   `f_flag`		        INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`		int NULL    COMMENT '删除人', 
+   `f_delete_time`		datetime  NULL  COMMENT '删除时间', 
+     
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 调拨从表
+CREATE TABLE IF NOT EXISTS `tbl_DB_Detail`(
+   `id`					INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`			int  NOT NULL  COMMENT '客户ID' , 
+   `f_mid`			    INT not  NULL COMMENT '主单号',
+   `f_spid`			    int  NOT NULL  COMMENT '商品ID', 
+   `f_qty`		        FLOAT  NOT NULL  COMMENT '数量', 
+   `f_price`		    FLOAT  NOT NULL  COMMENT '价格',
+   `f_total`		    FLOAT  NOT NULL  COMMENT '金额',   
+   `f_Out_Deptid`		int  NOT NULL DEFAULT -1 COMMENT '调出部门ID',    
+   `f_custody_deptid`		int  NOT NULL DEFAULT -1 COMMENT '调入部门ID', 
+   `f_custody_userid`		int  NOT NULL DEFAULT -1 COMMENT '调入后管理人员', 
+   `f_postion`		int  NOT NULL DEFAULT -1 COMMENT '调入后存放位置',    
+   `f_note`				VARCHAR(100)  NULL COMMENT '备注',    
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+   `f_flag`		        INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`		int NULL    COMMENT '删除人', 
+   `f_delete_time`		datetime  NULL  COMMENT '删除时间',        
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 资产变动主表
+CREATE TABLE IF NOT EXISTS `tbl_Change_Main`(
+   `id`					    INT UNSIGNED AUTO_INCREMENT,
+   `f_accountid`		INT NOT NULL COMMENT '',
+   `f_customid`			int  NOT NULL  COMMENT '客户ID' , 
+   `f_serno`			  char(50)  not  NULL COMMENT '单号',
+   `f_status`			  int  NOT NULL  COMMENT '单据状态', 
+   `f_deptid`			  int  NOT NULL  COMMENT '制单部门ID', 
+   `f_To_name`			varchar(100)  NULL  COMMENT '改变后的名称', 
+   `f_To_lbid`		  int  NOT NULL DEFAULT -1 COMMENT '改变后的类别', 
+   `f_To_Deptid`		int  NOT NULL DEFAULT -1 COMMENT '改变后的所属部门ID',   
+   `f_To_UseDeptid`	int  NOT NULL DEFAULT -1 COMMENT '改变后的使用部门ID',   
+   `f_To_UserID`		int  NOT NULL DEFAULT -1 COMMENT '改变后的管理人员',  
+   `f_To_UseUserID`	int  NOT NULL DEFAULT -1 COMMENT '改变后的使用人',  
+   `f_To_Postion`	int  NOT NULL DEFAULT -1 COMMENT '改变后的位置', 
+   `f_audit`		    INT NOT NULL DEFAULT 0  COMMENT '修改标志',  
+   `f_audit_date`		DATETIME NULL  COMMENT '修改时间', 
+   `f_audit_userid`	INT NULL  COMMENT '修改人', 
+   `f_note`				  VARCHAR(100)  NULL COMMENT '备注',   
+   `f_create_user`	INT NOT NULL COMMENT '创建人',
+   `f_create_time`	datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`	INT NULL COMMENT '最后修改人',
+   `f_update_time`	datetime    COMMENT '创建时间', 
+   `f_flag`		      INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`	int NULL    COMMENT '删除人', 
+   `f_delete_time`	datetime  NULL  COMMENT '删除时间', 
+     
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- 资产变动从表
+CREATE TABLE IF NOT EXISTS `tbl_Change_Detail`(
+   `id`					      INT UNSIGNED AUTO_INCREMENT,
+   `f_customid`			  int  NOT NULL  COMMENT '客户ID' , 
+   `f_mid`			      INT not  NULL COMMENT '主单号',
+   `f_spid`			      int  NOT NULL  COMMENT '商品ID',  
+   `f_To_name`			  varchar(100)  NULL  COMMENT '改变后的名称', 
+   `f_To_lbid`	  	  int  NOT NULL DEFAULT -1 COMMENT '改变后的类别', 
+   `f_To_Deptid`		  int  NOT NULL DEFAULT -1 COMMENT '改变后的所属部门ID',   
+   `f_To_UseDeptid`		int  NOT NULL DEFAULT -1 COMMENT '改变后的使用部门ID',   
+   `f_To_UserID`		  int  NOT NULL DEFAULT -1 COMMENT '改变后的管理人员',  
+   `f_To_UseUserID`		int  NOT NULL DEFAULT -1 COMMENT '改变后的使用人',  
+   `f_To_Postion`		int  NOT NULL DEFAULT -1 COMMENT '改变后的位置', 
+   `f_note`			    	VARCHAR(100)  NULL COMMENT '备注',    
+   `f_create_user`		INT NOT NULL COMMENT '创建人',
+   `f_create_time`		datetime NOT NULL   COMMENT '创建时间',
+   `f_update_user`		INT NULL COMMENT '最后修改人',
+   `f_update_time`		datetime    COMMENT '创建时间',
+   `f_flag`		        INT NOT NULL DEFAULT 0   COMMENT '状态 0正常 1删除', 
+   `f_delete_user`		int NULL    COMMENT '删除人', 
+   `f_delete_time`		datetime  NULL  COMMENT '删除时间',        
+   PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
