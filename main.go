@@ -16,7 +16,7 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	//2024-03-29 s tag=v1.0.1
+	//2024-03-29 s tag=v1.0.2
 
 	// 通过 /images/资源路径  可以访问static/images目录的内容
 	// 例: /images/user/1.jpg 实际访问的是 static/images/user/1.jpg
